@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCoding.Persistence", "L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCoding.UI", "LiveCoding.UI\LiveCoding.UI.csproj", "{011CF27E-1C82-4B29-8642-C17783F81081}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCoding.Test", "LiveCoding.Test\LiveCoding.Test.csproj", "{242334B2-6519-46FC-B965-04CA329DA74F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{011CF27E-1C82-4B29-8642-C17783F81081}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{011CF27E-1C82-4B29-8642-C17783F81081}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{011CF27E-1C82-4B29-8642-C17783F81081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{242334B2-6519-46FC-B965-04CA329DA74F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{242334B2-6519-46FC-B965-04CA329DA74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{242334B2-6519-46FC-B965-04CA329DA74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{242334B2-6519-46FC-B965-04CA329DA74F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

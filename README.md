@@ -19,7 +19,7 @@
 | Microsoft.EntityFrameworkCore.SqlServer |  -   |     Ja      | Ja |
 | Microsoft.Extensions.Configuration.Json |  -   |     Ja      | Ja |
 
-### Connection String
+### Connection String (SQL Server)
 
 ```json
 { 
@@ -27,5 +27,47 @@
     { 
     "DefaultConnection": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LiveCoding_2020035;Integrated Security=True;" 
     }
+}
+```
+
+### ApplicationDbContext.OnConfiguring
+
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    if (!optionsBuilder.IsConfigured)
+    {
+        var configuration = new ConfigurationBuilder()
+            .SetBasePath(Environment.CurrentDirectory)
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+        string connectionString = configuration["ConnectionStrings:DefaultConnection"];
+
+        optionsBuilder.UseSqlServer(connectionString);
+    }
+}
+```
+
+### DbContext Options for testing 
+
+```csharp
+private ApplicationDbContext GetDbContext(string dbName)
+{
+    // Build the ApplicationDbContext 
+    //  - with InMemory-DB
+    return new ApplicationDbContext(
+        new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseInMemoryDatabase(dbName)
+            .EnableSensitiveDataLogging()
+            .Options);
+}
+```
+
+### DbContext constructor for testing
+
+```csharp
+public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+{   
 }
 ```

@@ -11,6 +11,16 @@ namespace LiveCoding.Persistence
 
     public DbSet<City> Cities { get; set; }
 
+    public ApplicationDbContext()
+    {
+      
+    }
+    
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+      
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
       if (!optionsBuilder.IsConfigured)
