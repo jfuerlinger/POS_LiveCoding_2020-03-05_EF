@@ -7,16 +7,19 @@ namespace LiveCoding.Persistence
 {
   public class ApplicationDbContext : DbContext
   {
+    #region Properties 
     public DbSet<Pupil> Pupils { get; set; }
 
     public DbSet<City> Cities { get; set; }
+    #endregion
 
     public ApplicationDbContext()
     {
       
     }
     
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
+      : base(options)
     {
       
     }

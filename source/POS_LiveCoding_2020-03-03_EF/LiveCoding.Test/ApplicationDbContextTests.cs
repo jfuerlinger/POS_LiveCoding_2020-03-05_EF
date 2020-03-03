@@ -22,13 +22,13 @@ namespace LiveCoding.Test
     }
 
     [TestMethod]
-    public void SaveAsync_WithPupils_ShouldReturnTheSamePupilsOnFetch()
+    public void SaveChanges_WithPupils_ShouldReturnTheSameNumberOfPupilsOnFetch()
     {
       string dbName = Guid.NewGuid().ToString();
 
       using (ApplicationDbContext ctxSave = GetDbContext(dbName))
       {
-        Pupil p1 = new Pupil(){FirstName = "Susi", LastName = "Mustermann", Age=16};
+        Pupil p1 = new Pupil() { FirstName = "Susi", LastName = "Mustermann", Age = 16 };
         Pupil p2 = new Pupil() { FirstName = "Hansi", LastName = "Mair", Age = 15 };
 
         ctxSave.Pupils.Add(p1);
@@ -43,6 +43,30 @@ namespace LiveCoding.Test
       }
 
       Assert.AreEqual(2, cntOfPupils);
+    }
+
+    [TestMethod]
+    public void SaveChanges_AddCity_ShouldReturnEqualCityAsSaved()
+    {
+      string dbName = Guid.NewGuid().ToString();
+
+      City marchtrenk = new City() { Name = "Marchtrenk", ZipCode = 4614 };
+      using (ApplicationDbContext ctxSave = GetDbContext(dbName))
+      {
+        ctxSave.Cities.Add(marchtrenk);
+        ctxSave.SaveChanges();
+      }
+
+      City cityFromDb;
+      using (ApplicationDbContext ctxFetch = GetDbContext(dbName))
+      {
+        cityFromDb = ctxFetch.Cities.Single();
+      }
+
+      Assert.IsNotNull(cityFromDb);
+      Assert.AreEqual(marchtrenk.Name, cityFromDb.Name);
+      Assert.AreEqual(marchtrenk.ZipCode, cityFromDb.ZipCode);
+      Assert.AreNotSame(marchtrenk, cityFromDb);
     }
   }
 }
