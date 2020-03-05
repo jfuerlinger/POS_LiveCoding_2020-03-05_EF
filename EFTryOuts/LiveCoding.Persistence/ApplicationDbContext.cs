@@ -10,6 +10,14 @@ namespace LiveCoding.Persistence
     public DbSet<Pupil> Pupils { get; set; }
     public DbSet<School> Schools { get; set; }
 
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+    }
+
+    public ApplicationDbContext()
+    {
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
       if (!optionsBuilder.IsConfigured)
