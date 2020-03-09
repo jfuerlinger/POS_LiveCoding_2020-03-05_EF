@@ -12,12 +12,13 @@
 
 ### NuGet Packages
 
-| Paket                                   | Core | Persistence | UI |
-|:----------------------------------------|:----:|:-----------:|:--:|
-| Microsoft.EntityFrameworkCore           |  -   |     Ja      | Ja |
-| Microsoft.EntityFrameworkCore.Tools     |  -   |     Ja      | -  |
-| Microsoft.EntityFrameworkCore.SqlServer |  -   |     Ja      | Ja |
-| Microsoft.Extensions.Configuration.Json |  -   |     Ja      | Ja |
+| Paket                                   | Core | Persistence | UI | Test |
+|:----------------------------------------|:----:|:-----------:|:--:|:----:|
+| Microsoft.EntityFrameworkCore           |  -   |     Ja      | Ja |  -   |
+| Microsoft.EntityFrameworkCore.Tools     |  -   |     Ja      | -  |  -   |
+| Microsoft.EntityFrameworkCore.SqlServer |  -   |     Ja      | Ja |  -   |
+| Microsoft.EntityFrameworkCore.InMemory  |  -   |     Ja      | Ja |  Ja  |
+| Microsoft.Extensions.Configuration.Json |  -   |     Ja      | Ja |  -   |
 
 ### Connection String (SQL Server)
 
